@@ -1,4 +1,3 @@
-Aqui está o `README.md` atualizado para o seu projeto, agora levando em consideração que ele foi feito em Next.js:
 
 ```markdown
 # Formulário de Registro em Next.js

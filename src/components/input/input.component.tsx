@@ -11,7 +11,7 @@ interface InputProps {
   successMessage?: string;
 }
 
-const Input: React.FC<InputProps> = ({ label, type = 'text', placeholder, value, onChange, validate, successMessage }) => {
+const Input: React.FC <InputProps> = ({ label, type = 'text', placeholder, value, onChange, validate, successMessage }) => {
   const [inputValue, setInputValue] = useState(value || '');
   const [error, setError] = useState<string | null>(null);
   const [isValid, setIsValid] = useState(false);

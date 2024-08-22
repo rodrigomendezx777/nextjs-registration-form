@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const InputContainer = styled.div`
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 `;
 
 export const Label = styled.label`
@@ -23,12 +23,12 @@ export const ErrorMessage = styled.p`
   color: red;
   font-size: 12px;
   margin-top: 4px;
-  margin-bottom: 12px;
+  /* margin-bottom: 12px; */
 `;
 
 export const SuccessMessage = styled.p`
   color: green;
   font-size: 12px;
   margin-top: 4px;
-  margin-bottom: 12px;
+  /* margin-bottom: 12px; */
 `;

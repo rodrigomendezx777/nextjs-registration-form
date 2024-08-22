@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-width: 70%;
+  width: 70%;
   background-color: #007bff; /* Cor de fundo */
   color: white; /* Cor do texto */
   border: none; /* Remove a borda padrão */

@@ -1,46 +1,54 @@
-// src/components/Navbar/Navbar.tsx
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { NavbarContainer, NavItem, NavList } from './navBar.style';
+import React, { useState } from 'react';
+import { NavContainer, Logo, NavLinks, NavLinkItem, HamburgerIcon, MobileMenu } from './navBar.style';
 
 const Navbar: React.FC = () => {
-  const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY;
-      if (offset > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <NavbarContainer className={scrolled ? 'scrolled' : ''}>
-      <NavList>
-        <NavItem>
-          <Link href="/">Home</Link>
-        </NavItem>
-        <NavItem>
-          <Link href="/catalogo">Catálogo</Link>
-        </NavItem>
-        <NavItem>
-          <Link href="/contato">Contato</Link>
-        </NavItem>
-        <NavItem>
-          <Link href="/sobre">Sobre</Link>
-        </NavItem>
-      </NavList>
-    </NavbarContainer>
+    <NavContainer>
+      <Logo>MeuSite</Logo>
+      <NavLinks>
+        <NavLinkItem href="/">Home</NavLinkItem>
+        <NavLinkItem href="/about">Sobre</NavLinkItem>
+        <NavLinkItem href="/services">Serviços</NavLinkItem>
+        <NavLinkItem href="/contact">Contato</NavLinkItem>
+      </NavLinks>
+      <HamburgerIcon onClick={toggleMenu}>
+        <span />
+        <span />
+        <span />
+      </HamburgerIcon>
+      {isOpen && (
+        <MobileMenu>
+          <NavLinkItem href="/">Home</NavLinkItem>
+          <NavLinkItem href="/about">Sobre</NavLinkItem>
+          <NavLinkItem href="/services">Serviços</NavLinkItem>
+          <NavLinkItem href="/contact">Contato</NavLinkItem>
+        </MobileMenu>
+      )}
+    </NavContainer>
   );
 };
 
 export default Navbar;
+
+
+
+
+
+// 3. Explicação das Etapas
+// NavContainer: Este é o contêiner principal da navbar, que tem uma cor de fundo e está configurado para alinhar os itens ao centro, com espaço entre o logo e os links de navegação.
+
+// Logo: Estilização simples para o logo.
+
+// NavLinks: Este é o contêiner dos links de navegação. Em telas menores (menores que 768px), ele é oculto.
+
+// NavLinkItem: Cada link de navegação tem um estilo básico com cor branca e efeito de hover.
+
+// HamburgerIcon: Este é o ícone de menu hambúrguer que aparece em telas menores. Ele consiste em três barras empilhadas verticalmente.
+
+// MobileMenu: O menu que aparece ao clicar no ícone de hambúrguer. Ele é exibido apenas quando isOpen é verdadeiro.
